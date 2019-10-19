@@ -1,0 +1,730 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>Auditall | Documentação API</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<!-- VENDOR CSS -->
+	<link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="assets/vendor/linearicons/style.css">
+	<!-- MAIN CSS -->
+	<link rel="stylesheet" href="assets/css/main.css">
+	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
+	<link rel="stylesheet" href="assets/css/demo.css">
+	<!-- GOOGLE FONTS -->
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+	<!-- ICONS -->
+	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon.ico">
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+	<script type="text/javascript">
+			function rolar_para(elemento) {
+				$('html, body').animate({
+					scrollTop: $(elemento).offset().top
+				}, 1500);
+			}
+	</script>
+
+</head>
+
+<body>
+	<!-- WRAPPER -->
+	<div id="wrapper">
+		<!-- NAVBAR -->
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="brand">
+				<a href="index.html"><img src="assets/img/logo.png" alt="Auditall Logo" class="img-responsive logo"></a>
+			</div>
+			<div class="container-fluid">
+				<div class="navbar-btn">
+					<button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
+				</div>
+			</div>
+		</nav>
+		<!-- END NAVBAR -->
+		<!-- LEFT SIDEBAR -->
+		<div id="sidebar-nav" class="sidebar">
+			<div class="sidebar-scroll">
+				<nav>
+					<ul class="nav">
+						<li><a href="#" class="" onclick="rolar_para('#introducao');"><span>Introdução</span></a></li>
+						<li><a href="#" class="" onclick="rolar_para('#autenticacao');"><span>Autenticação &nbsp;</span><span class="label label-primary">POST</span></a></li>
+						<li>
+							<a href="#subPages" data-toggle="collapse" class="collapsed"><span>Relatórios</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<div id="subPages" class="collapse ">
+								<ul class="nav">
+									<li><a href="#comprovantes" class="" onclick="rolar_para('#comprovantes');">Comprovantes &nbsp;</span> <span class="label label-primary">POST</span></a></li>
+									<li><a href="#recebimentos" class="" onclick="rolar_para('#recebimentos');">Recebimentos &nbsp;</span> <span class="label label-primary">POST</span></a></li>
+								</ul>
+							</div>
+						</li>
+						<li><a href="#" class="" onclick="rolar_para('#upload');"><span>Upload de arquivos &nbsp; </span><span class="label label-primary">POST</span></a></li>
+						<li>
+							<a href="#subPages3" data-toggle="collapse" class="collapsed"><span>Anexos</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<div id="subPages3" class="collapse ">
+								<ul class="nav">
+									<li><a href="#" class="" onclick="rolar_para('#ajustes');">Ajustes</a></li>
+									<li><a href="#" class="" onclick="rolar_para('#adquirentes');">Adquirentes</a></li>
+									<li><a href="#" class="" onclick="rolar_para('#motivorejeicao');">Motivo rejeição</a></li>
+									<li><a href="#" class="" onclick="rolar_para('#bandeiras');">Bandeiras</a></li>
+									<li><a href="#" class="" onclick="rolar_para('#produtos');">Produtos</a></li>
+								</ul>
+							</div>
+						</li>
+						<li><a href="#" onclick="rolar_para('#contatos');" class=""><span>Contatos</span></a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+		<!-- END LEFT SIDEBAR -->
+		<!-- MAIN -->
+		<div class="main" id="introducao">
+			<!-- MAIN CONTENT -->
+			<div class="main-content">
+				<div class="container-fluid">
+					<h3 class="page-title">Introdução</h3>
+					<h4 class="page-title">
+						Bem vindo a documentação da API do conciliador Audit All!</br></br>
+						
+						Você pode usar nossa API para consumir todos os regitros dos seus 
+						recebimentos e das suas vendas totalmente tratados e padronizados, 
+						facilitando a integração entre seu sistema e nosso conciliador.</br></h4>
+				</div>
+			</div>
+			<!-- END MAIN CONTENT -->
+		</div>
+		<!-- END MAIN -->
+
+<!-- AUTENTICACAO -->
+<div class="main" id="autenticacao">
+	<!-- AUTENTICACAO CONTENT -->
+	<div class="main-content">
+		<div class="container-fluid">
+			<h3 class="page-title">Autenticação</h3>
+			<h4 class="page-title">
+					Sempre que precisar consumir os dados da API, você precisará enviar uma 
+					solicitação de autenticação para receber Token de acesso.</br> 
+					Os dados de envio são os mesmos de acesso a plataforma Web (CNPJ, Login e Senha). 
+					Com a chave de retorno você inclui nas chamadas do sistema. A API retornará todos os dados cadastrais da sua conta.</br>
+
+					Nunca compartilhe suas credenciais. Mantenha-os protegidos e seguros.</h4></br>
+			
+			<div class="row">
+				<div class="col-md-7">
+					<!-- TABLE HOVER -->
+					<div class="panel">
+						<div class="panel-heading">
+							<h3 class="panel-title">Request</h3></br>
+							<h5 class="panel-title"><span class="label label-primary">POST</span> https://api.auditall.com.br/usuario/login</h5>
+						</div>
+						<div class="panel-body">
+								<h4>Header</h4>
+							<table class="table table-hover">
+									<thead>
+									<tr>
+										<th>Parametro</th>
+										<th>Valor</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Content-Type</td>
+										<td>application/json</td>
+									</tr>
+								</tbody>
+							</table>
+							<h4>Body<h6>(row)</h6></h4>
+							<pre>
+{
+ "cnpj": "",
+ "login":"",
+ "password":""
+}
+							</pre>
+						</div>
+					</div>
+					<!-- END TABLE HOVER -->
+				</div>
+				<div class="col-md-5">
+					<!-- TABLE HOVER -->
+					<div class="panel">
+						<div class="panel-heading">
+							<h3 class="panel-title">Response</h3>
+						</div>
+						<div class="panel-body">
+						<pre>
+{
+ "login": "",
+ "password": "",
+ "createdAt":,
+ "token": "",
+ "empresa": {
+	"_id": "",
+	"senha": "",
+	"usuario": "",
+	"emailContatoFinanceiro": "",
+	"telefoneContatoFinanceiro": "",
+	"nomeContatoFinanceiro": "",
+	"foneContato": "",
+	"nomeContato": "",
+	"numero": "",
+	"endereco": "",
+	"cepMatriz": "",
+	"email": "",
+	"razaoSocial": "",
+	"nomeFantasia": "",
+	"isAtivo": "",
+	"cnpj": "",
+	"operadorasInformation": [
+		{
+		 "nome": "",
+		 "identificador": "",
+		 "transacoes": ,
+		 "maquinetas": ,
+		 "_id": ""
+		}
+	],
+	"tefInformation": [],
+	"estabelecimentoCollection": [
+		{
+		 "produtoTaxaCollection": [],
+		 "operadorasFilialList": [],
+		 "nomeFilial": "",
+		 "cnpj": "",
+		 "_id": ""
+		},
+		{
+		 "produtoTaxaCollection": [],
+		 "operadorasFilialList": [
+		 	{
+			 "operadora": "",
+			 "identificador": ,
+			 "qtdTransacoes": ,
+			 "quantidadePos": ,
+			 "custoTotal": ,
+			 "_id": ""
+			}
+			],
+		 "nomeFilial": "",
+		 "cnpj": "",
+		 "_id": ""
+		}
+	],
+	"usuarioResponsavelCollection": [],
+	"__v": 0,
+	"merchantId": ""
+ },
+ "merchantId": ""
+}
+</pre>
+						</div>
+					</div>
+					<!-- END TABLE HOVER -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END MAIN CONTENT -->
+</div>
+<!-- END MAIN -->
+
+<!-- COMPROVANTES -->
+<div class="main" id="comprovantes">
+		<!-- AUTENTICACAO CONTENT -->
+		<div class="main-content">
+			<div class="container-fluid">
+				<h3 class="page-title">Comprovantes</h3>
+				<h4 class="page-title">
+						Todas as informações dos comprovantes de vendas. Você pode verificar se todas as vendas realizadas constam na agenda das adquirentes.</h4></br>
+				
+				<div class="row">
+					<div class="col-md-7">
+						<!-- TABLE HOVER -->
+						<div class="panel">
+							<div class="panel-heading">
+								<h3 class="panel-title">Request</h3></br>
+								<h5 class="panel-title"><span class="label label-primary">POST</span> https://api.auditall.com.br/comprovante/getComprovantes</h5>
+							</div>
+							<div class="panel-body">
+									<h4>Header</h4>
+								<table class="table table-hover">
+										<thead>
+										<tr>
+											<th>Parametro</th>
+											<th>Valor</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>Content-Type</td>
+											<td>application/json</td>
+										</tr>
+									</tbody>
+								</table>
+								<h4>Body<h6>(row)</h6></h4>
+								<pre>
+{
+ "operadoras":[],
+ "bandeiras":[],
+ "estabelecimentos":[{
+	"nomeFilial":"",
+	"cnpj":"",
+	"_id":"",
+	"operadorasFilialList":[],
+	"produtoTaxaCollection":[]
+ }],
+ "numeroOperacao":"",
+ "codigoAutorizacao":"",
+ "nsu":"",
+ "dataTransacaoInicial":"",
+ "dataTransacaoFinal":"",
+ "numeroLogicoTerminal":"",
+ "meioCaptura":,
+ "dataProcessamentoInicial":,
+ "dataProcessamentoFinal":,
+ "operadorasInformation":[{
+	"nome":"",
+	"identificador":"",
+	"transacoes":,
+	"maquinetas":,
+	"_id":""
+	}]
+}
+								</pre>
+							</div>
+						</div>
+						<!-- END TABLE HOVER -->
+					</div>
+					<div class="col-md-5">
+						<!-- TABLE HOVER -->
+						<div class="panel">
+							<div class="panel-heading">
+								<h3 class="panel-title">Response</h3>
+							</div>
+							<div class="panel-body">
+							<pre>
+	{
+	 "login": "",
+	 "password": "",
+	 "createdAt":,
+	 "token": "",
+	 "empresa": {
+		"_id": "",
+		"senha": "",
+		"usuario": "",
+		"emailContatoFinanceiro": "",
+		"telefoneContatoFinanceiro": "",
+		"nomeContatoFinanceiro": "",
+		"foneContato": "",
+		"nomeContato": "",
+		"numero": "",
+		"endereco": "",
+		"cepMatriz": "",
+		"email": "",
+		"razaoSocial": "",
+		"nomeFantasia": "",
+		"isAtivo": "",
+		"cnpj": "",
+		"operadorasInformation": [
+			{
+			 "nome": "",
+			 "identificador": "",
+			 "transacoes": ,
+			 "maquinetas": ,
+			 "_id": ""
+			}
+		],
+		"tefInformation": [],
+		"estabelecimentoCollection": [
+			{
+			 "produtoTaxaCollection": [],
+			 "operadorasFilialList": [],
+			 "nomeFilial": "",
+			 "cnpj": "",
+			 "_id": ""
+			},
+			{
+			 "produtoTaxaCollection": [],
+			 "operadorasFilialList": [
+				 {
+				 "operadora": "",
+				 "identificador": ,
+				 "qtdTransacoes": ,
+				 "quantidadePos": ,
+				 "custoTotal": ,
+				 "_id": ""
+				}
+				],
+			 "nomeFilial": "",
+			 "cnpj": "",
+			 "_id": ""
+			}
+		],
+		"usuarioResponsavelCollection": [],
+		"__v": 0,
+		"merchantId": ""
+	 },
+	 "merchantId": ""
+	}
+	</pre>
+							</div>
+						</div>
+						<!-- END TABLE HOVER -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- END MAIN CONTENT -->
+	</div>
+	<!-- END MAIN -->
+
+<!-- Recebimentos -->
+<div class="main" id="recebimentos">
+	<!-- Recebimentos CONTENT -->
+	<div class="main-content">
+		<div class="container-fluid">
+			<h3 class="page-title">Recebimentos</h3>
+			<h4 class="page-title">Lorem ipsum dolor sit amet, <code>consectetur</code> adipiscing elit. Quisque nec venenatis est. Aliquam scelerisque bibendum volutpat. Donec vehicula tincidunt arcu, nec pellentesque neque dignissim eu. Duis a pretium sapien. Suspendisse efficitur eu metus ultrices suscipit. Mauris eget nulla a urna fermentum vulputate. Fusce ac leo rhoncus, convallis sem vel, blandit velit. Vestibulum pharetra dapibus nisi fermentum pretium. </h4>
+			<div class="row">
+				<div class="col-md-7">
+					<!-- TABLE HOVER -->
+					<div class="panel">
+						<div class="panel-heading">
+							<h3 class="panel-title">Request</h3>
+						</div>
+						<div class="panel-body">
+							<table class="table table-hover">
+								<thead>
+									<tr>
+										<th>Parameter</th>
+										<th>Type</th>
+										<th>Position</th>
+										<th>#</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Authorization</td>
+										<td><code>string</code></td>
+										<td><code>Header</code></td>
+										<td><code>Required</code></td>
+										<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </td>
+									</tr>
+									<tr>
+										<td>username</td>
+										<td><code>string</code></td>
+										<td><code>Body</code></td>
+										<td><code>Required</code></td>
+										<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec venenatis est. Aliquam scelerisque bibendum volutpat. Donec vehicula tincidunt arcu, nec pellentesque neque dignissim eu. </td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<!-- END TABLE HOVER -->
+				</div>
+				<div class="col-md-5">
+					<!-- TABLE HOVER -->
+					<div class="panel">
+						<div class="panel-heading">
+							<h3 class="panel-title">Response</h3>
+						</div>
+						<div class="panel-body">
+						<pre>{
+"status": true,
+"result_code": 200,
+"message": "Success!",
+"values": {
+		"name": "Kiddy",
+		"email": "kiddydhana@gmail.com",
+		"token": "9WUzKE7kCI1vSuQAbrmOwc2m2dk1NbPR",
+		"account_status": "1"
+}
+}</pre>
+						</div>
+					</div>
+					<!-- END TABLE HOVER -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END MAIN CONTENT -->
+</div>
+<!-- END MAIN -->
+
+<!-- UPLOAD -->
+<div class="main" id="upload">
+		<!-- AUTENTICACAO CONTENT -->
+		<div class="main-content">
+			<div class="container-fluid">
+				<h3 class="page-title">Upload de arquivo</h3>
+				<h4 class="page-title">
+						Você pode utilizar a API para enviar os arquivos de vendas de forma automatizada. Os layouts dos arquivos estão na tabela Anexo I.</h4></br>
+				
+				<div class="row">
+					<div class="col-md-7">
+						<!-- TABLE HOVER -->
+						<div class="panel">
+							<div class="panel-heading">
+								<h3 class="panel-title">Request</h3></br>
+								<h5 class="panel-title"><span class="label label-primary">POST</span> https://api.auditall.com.br/file/upload</h5>
+							</div>
+							<div class="panel-body">
+								<h4>Body <h6>(formdata)</h6></h4>
+								<pre>
+file
+								</pre>
+							</div>
+						</div>
+						<!-- END TABLE HOVER -->
+					</div>
+					<div class="col-md-5">
+						<!-- TABLE HOVER -->
+						<div class="panel">
+							<div class="panel-heading">
+								<h3 class="panel-title">Response</h3>
+							</div>
+							<div class="panel-body">
+							<pre>
+{
+ Retorno
+}
+							</pre>
+							</div>
+						</div>
+						<!-- END TABLE HOVER -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- END MAIN CONTENT -->
+	</div>
+	<!-- END MAIN -->
+
+	<!-- ANEXOS -->
+<div class="main" id="ajustes">
+		<!-- Recebimentos CONTENT -->
+		<div class="main-content">
+			<div class="container-fluid">
+				<h3 class="page-title">Anexos</h3>
+				<h4 class="page-title">Lorem ipsum dolor sit amet, <code>consectetur</code> adipiscing elit. Quisque nec venenatis est. Aliquam scelerisque bibendum volutpat. Donec vehicula tincidunt arcu, nec pellentesque neque dignissim eu. Duis a pretium sapien. Suspendisse efficitur eu metus ultrices suscipit. Mauris eget nulla a urna fermentum vulputate. Fusce ac leo rhoncus, convallis sem vel, blandit velit. Vestibulum pharetra dapibus nisi fermentum pretium. </h4>
+				<div class="row">
+					<div class="col-md-12">
+						<!-- TABLE HOVER -->
+						<div class="panel">
+							<div class="panel-heading">
+								<h3 class="panel-title">Ajustes</h3>
+							</div>
+							<div class="panel-body">
+								<table class="table table-hover">
+									<thead>
+										<tr>
+											<th>Parameter</th>
+											<th>Type</th>
+											<th>Position</th>
+											<th>#</th>
+											<th>Description</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>Authorization</td>
+											<td><code>string</code></td>
+											<td><code>Header</code></td>
+											<td><code>Required</code></td>
+											<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </td>
+										</tr>
+										<tr>
+											<td>username</td>
+											<td><code>string</code></td>
+											<td><code>Body</code></td>
+											<td><code>Required</code></td>
+											<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec venenatis est. Aliquam scelerisque bibendum volutpat. Donec vehicula tincidunt arcu, nec pellentesque neque dignissim eu. </td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<!-- END TABLE HOVER -->
+					</div>
+				</div>
+
+				<div class="row" id="adquirentes">
+						<div class="col-md-3">
+							<!-- TABLE HOVER -->
+							<div class="panel">
+								<div class="panel-heading">
+									<h3 class="panel-title">Adquirentes</h3>
+								</div>
+								<div class="panel-body">
+									<table class="table table-hover">
+										<thead>
+											<tr>
+												<th>#</th>
+												<th>Descrição</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>1</td>
+												<td>Cielo</td>
+											</tr>
+											<tr>
+												<td>2</td>
+												<td>Rede</td>
+											</tr>
+											<tr>
+													<td>3</td>
+													<td>Getnet</td>
+											</tr>
+											<tr>
+													<td>4</td>
+													<td>Stone</td>
+											</tr>
+											<tr>
+													<td>6</td>
+													<td>Adiq</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<!-- END TABLE HOVER -->
+						</div>
+					</div>
+
+					<div class="row" id="motivorejeicao">
+							<div class="col-md-12">
+								<!-- TABLE HOVER -->
+								<div class="panel">
+									<div class="panel-heading">
+										<h3 class="panel-title">Motivo rejeição</h3>
+									</div>
+									<div class="panel-body">
+										<table class="table table-hover">
+											<thead>
+												<tr>
+													<th>Parameter</th>
+													<th>Type</th>
+													<th>Position</th>
+													<th>#</th>
+													<th>Description</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Authorization</td>
+													<td><code>string</code></td>
+													<td><code>Header</code></td>
+													<td><code>Required</code></td>
+													<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </td>
+												</tr>
+												<tr>
+													<td>username</td>
+													<td><code>string</code></td>
+													<td><code>Body</code></td>
+													<td><code>Required</code></td>
+													<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec venenatis est. Aliquam scelerisque bibendum volutpat. Donec vehicula tincidunt arcu, nec pellentesque neque dignissim eu. </td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<!-- END TABLE HOVER -->
+							</div>
+						</div>
+
+						<div class="row" id="bandeiras">
+								<div class="col-md-12">
+									<!-- TABLE HOVER -->
+									<div class="panel">
+										<div class="panel-heading">
+											<h3 class="panel-title">Bandeiras</h3>
+										</div>
+										<div class="panel-body">
+											<table class="table table-hover">
+												<thead>
+													<tr>
+														<th>Parameter</th>
+														<th>Type</th>
+														<th>Position</th>
+														<th>#</th>
+														<th>Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>Authorization</td>
+														<td><code>string</code></td>
+														<td><code>Header</code></td>
+														<td><code>Required</code></td>
+														<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </td>
+													</tr>
+													<tr>
+														<td>username</td>
+														<td><code>string</code></td>
+														<td><code>Body</code></td>
+														<td><code>Required</code></td>
+														<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec venenatis est. Aliquam scelerisque bibendum volutpat. Donec vehicula tincidunt arcu, nec pellentesque neque dignissim eu. </td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+									<!-- END TABLE HOVER -->
+								</div>
+							</div>
+
+			</div>
+		</div>
+		<!-- END MAIN CONTENT -->
+	</div>
+	<!-- END MAIN -->
+
+		<!-- CONTATOS -->
+		<div class="main" id="contatos">
+				<!-- MAIN CONTENT -->
+				<div class="main-content">
+					<div class="container-fluid">
+						<h3 class="page-title">Contatos</h3>
+						<h4 class="page-title">
+								Caso precise de ajuda com esta documentação, poderá entrar em contato pelos canais abaixo.</br></br><p></p>
+							
+							<i class="lnr lnr-envelope"></i> suporte.dev@auditall.com.br</br></br>
+							<i class="lnr lnr-bubble"></i> 81.9.9999.9999 (Whatsapp e Telegram)</br></br>
+							<i class="lnr lnr-smartphone"></i> 81.9.9999.9999</br></h4></br>
+					</div>
+				</div>
+				<!-- END MAIN CONTENT -->
+			</div>
+			<!-- END MAIN -->
+
+		<div class="clearfix"></div>
+		<footer>
+			<div class="container-fluid">
+				<p class="copyright">&copy; Copyright 2019 Auditall.</p>
+			</div>
+		</footer>
+	</div>
+	<!-- END WRAPPER -->
+	<!-- Javascript -->
+	<script>
+	$(document).ready(function() {
+	  $('pre code').each(function(i, block) {
+		hljs.highlightBlock(block);
+	  });
+	});
+	</script>
+	<script src="assets/vendor/jquery/jquery.min.js"></script>
+	<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+	<script src="assets/scripts/klorofil-common.js"></script>
+</body>
+
+</html>
