@@ -1,13 +1,3 @@
-# API Documentation Template HTML
+# Documentação da API do Conciliador Auditall
 
-Bootstrap Template from Klorofil Template for API Documentation propose.
-
-## Built With
-
-* [Bootstrap](https://getbootstrap.com/) - The web framework used
-* [Highlight JS](https://highlightjs.org/) - Highlight Code JS
-* [Theme Indeed Klorofil](https://www.themeineed.com/downloads/klorofil-free-bootstrap-admin-template/) - Klorofil Template
-
----
-link permanente: /index.html
----
+Template simplificado Bootstrap
