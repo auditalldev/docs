@@ -90,14 +90,7 @@
 					<h3 class="page-title">Introdução</h3>
 					<h4 class="page-title">				
 
-						<p>
-							<table width="100%">
-								<tr>
-									<td width="25%"><img src="assets/img/icone_integracao.png" width="100" alt="API" class="img-responsive logo" /></td>
-									<td width="75%">Bem vindo a documentação da API do conciliador Audit All!</td>
-								</tr>
-							</table>
-						</p>
+						<p class="text-center">Bem vindo a documentação da API do conciliador Audit All!</p>
 						</br>
 
 						<p>Você pode usar nossa API para consumir todos os registros dos seus recebimentos e das suas vendas totalmente tratados e padronizados, facilitando a integração entre seu sistema e o conciliador. As infomrações contidas nas coleções, são as mesmas informadas nos relatórios da aplicação.</p>
@@ -128,9 +121,9 @@
 					Sempre que precisar consumir os dados da API, você precisará enviar uma 
 					solicitação de autenticação para receber Token de acesso.</br> 
 					Os dados de envio são os mesmos de acesso a plataforma Web (CNPJ, Login e Senha). 
-					Com a chave de retorno você inclui nas chamadas do sistema. A API retornará todos os dados cadastrais da sua conta.</br>
+					Com a chave de retorno você inclui nas chamadas do sistema. A API retornará todos os dados cadastrais da sua conta.</h4>
 
-					Nunca compartilhe suas credenciais. Mantenha-os protegidos e seguros.</h4></br>
+					<div class="alert alert-warning col-md-7" role="alert"><strong>Nunca compartilhe suas credenciais!</strong> Mantenha seus dados sempre protegidos e seguros.</div>
 			
 			<div class="row">
 				<div class="col-md-7">
@@ -138,7 +131,7 @@
 					<div class="panel">
 						<div class="panel-heading">
 							<h3 class="panel-title">Request</h3></br>
-							<h5 class="panel-title"><span class="label label-primary">POST</span> https://api.auditall.com.br/usuario/login</h5>
+							<h5><span class="label label-primary">POST</span></h5><h4> https://api.auditall.com.br/usuario/login</h4>
 						</div>
 						<div class="panel-body">
 								<h4>Header</h4>
@@ -177,14 +170,8 @@
 						<div class="panel-body">
 						<pre>
 {
- "login": "",
- "password": "",
- "createdAt":,
- "token": "",
+ <strong>"token": ""</strong>,
  "empresa": {
-	"_id": "",
-	"senha": "",
-	"usuario": "",
 	"emailContatoFinanceiro": "",
 	"telefoneContatoFinanceiro": "",
 	"nomeContatoFinanceiro": "",
@@ -196,15 +183,13 @@
 	"email": "",
 	"razaoSocial": "",
 	"nomeFantasia": "",
-	"isAtivo": "",
 	"cnpj": "",
 	"operadorasInformation": [
 		{
 		 "nome": "",
 		 "identificador": "",
 		 "transacoes": ,
-		 "maquinetas": ,
-		 "_id": ""
+		 "maquinetas":
 		}
 	],
 	"tefInformation": [],
@@ -213,8 +198,7 @@
 		 "produtoTaxaCollection": [],
 		 "operadorasFilialList": [],
 		 "nomeFilial": "",
-		 "cnpj": "",
-		 "_id": ""
+		 "cnpj": ""
 		},
 		{
 		 "produtoTaxaCollection": [],
@@ -224,20 +208,14 @@
 			 "identificador": ,
 			 "qtdTransacoes": ,
 			 "quantidadePos": ,
-			 "custoTotal": ,
-			 "_id": ""
+			 "custoTotal": 
 			}
 			],
 		 "nomeFilial": "",
-		 "cnpj": "",
-		 "_id": ""
+		 "cnpj": ""
 		}
-	],
-	"usuarioResponsavelCollection": [],
-	"__v": 0,
-	"merchantId": ""
- },
- "merchantId": ""
+	]
+ }
 }
 </pre>
 						</div>
