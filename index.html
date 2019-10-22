@@ -242,9 +242,10 @@
 					<div class="col-md-7">
 						<!-- TABLE HOVER -->
 						<div class="panel">
+
 							<div class="panel-heading">
 								<h3 class="panel-title">Request</h3></br>
-								<h5 class="panel-title"><span class="label label-primary">POST</span> https://api.auditall.com.br/comprovante/getComprovantes</h5>
+								<h5><span class="label label-primary">POST</span></h5><h4> https://api.auditall.com.br/comprovante/getComprovantes</h4>
 							</div>
 							<div class="panel-body">
 									<h4>Header</h4>
@@ -260,36 +261,20 @@
 											<td>Content-Type</td>
 											<td>application/json</td>
 										</tr>
+										<tr>
+												<td>Authorization</td>
+												<td>Token</td>
+											</tr>
 									</tbody>
 								</table>
 								<h4>Body<h6>(row)</h6></h4>
 								<pre>
 {
- "operadoras":[],
- "bandeiras":[],
  "estabelecimentos":[{
-	"nomeFilial":"",
-	"cnpj":"",
-	"_id":"",
-	"operadorasFilialList":[],
-	"produtoTaxaCollection":[]
+	"operadorasFilialList":[]
  }],
- "numeroOperacao":"",
- "codigoAutorizacao":"",
- "nsu":"",
  "dataTransacaoInicial":"",
- "dataTransacaoFinal":"",
- "numeroLogicoTerminal":"",
- "meioCaptura":,
- "dataProcessamentoInicial":,
- "dataProcessamentoFinal":,
- "operadorasInformation":[{
-	"nome":"",
-	"identificador":"",
-	"transacoes":,
-	"maquinetas":,
-	"_id":""
-	}]
+ "dataTransacaoFinal":""
 }
 								</pre>
 							</div>
