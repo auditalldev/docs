@@ -119,7 +119,7 @@
 			<h3 class="page-title">Autenticação</h3>
 			<h4 class="page-title">
 					Sempre que precisar consumir os dados da API, você precisará enviar uma 
-					solicitação de autenticação para receber Token de acesso.</br> 
+					solicitação de autenticação para receber Token de acesso e o Merchant Id.</br> 
 					Os dados de envio são os mesmos de acesso a plataforma Web (CNPJ, Login e Senha). 
 					Com a chave de retorno você inclui nas chamadas do sistema. A API retornará todos os dados cadastrais da sua conta.</h4>
 
@@ -216,6 +216,7 @@
 		}
 	]
  }
+ <strong>"merchantId": ""</strong>
 }
 </pre>
 						</div>
@@ -236,8 +237,10 @@
 			<div class="container-fluid">
 				<h3 class="page-title">Comprovantes</h3>
 				<h4 class="page-title">
-						Todas as informações dos comprovantes de vendas. Você pode verificar se todas as vendas realizadas constam na agenda das adquirentes.</h4></br>
+						Todas as informações dos comprovantes de vendas. Você pode verificar se todas as vendas realizadas constam na agenda das adquirentes.</h4>
 				
+						<div class="alert alert-warning col-md-10" role="alert">Insira os filtros desejados no <strong>Body</strong> para a consulta. Caso o parâmetro esteja sem valor, o sistema trará todos os registros.</div>
+
 				<div class="row">
 					<div class="col-md-7">
 						<!-- TABLE HOVER -->
@@ -263,7 +266,7 @@
 										</tr>
 										<tr>
 												<td>Authorization</td>
-												<td>Token</td>
+												<td>Bearer (insira o Token)</td>
 											</tr>
 									</tbody>
 								</table>
