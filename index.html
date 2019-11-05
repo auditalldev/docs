@@ -95,7 +95,11 @@
 
 						<p>Você pode usar nossa API para consumir todos os registros dos seus recebimentos e das suas vendas totalmente tratados e padronizados, facilitando a integração entre seu sistema e o conciliador. As infomrações contidas nas coleções, são as mesmas informadas nos relatórios da aplicação.</p>
 
-						<p>Para o consumo das informações  , você precisará utilizar os dados de login da plataforma (CNPJ, Usuário e Senha) para gerar o Token e assim enviar nas requisições juntamente com os filtros. Sempre estará disponível no sistema as transações realizadas em D-1 e os registros financeiros estarão disponíveis e D.</p>
+						<p>Para o consumo das informações  , você precisará utilizar Merchant Id, encontrará no módulo de confirgurações na plataforma WEB (como mostrado na imagem abaixo) para enviar nas requisições. Sempre estará disponível no sistema as transações realizadas em D-1 e os registros financeiros estarão disponíveis e D.</p>
+						
+						
+						<p class="text-center"><img src="assets/img/MerchantId.png" alt="Merchant Id" class="img-responsive" /></p></br>
+						
 
 						<p>Não fazemos nenhum tipo de restrição referente a limites de tempo para consumo. As infromações são processadas e disponibilizadas 1 vez por dia e assim não se faz necessário o consumo em vários momentos do mesmo dia.</p>
 
@@ -116,12 +120,10 @@
 	<!-- AUTENTICACAO CONTENT -->
 	<div class="main-content">
 		<div class="container-fluid">
-			<h3 class="page-title">Autenticação</h3>
+			<h3 class="page-title">Informações cadastradas</h3>
 			<h4 class="page-title">
-					Sempre que precisar consumir os dados da API, você precisará enviar uma 
-					solicitação de autenticação para receber Token de acesso e o Merchant Id.</br> 
-					Os dados de envio são os mesmos de acesso a plataforma Web (CNPJ, Login e Senha). 
-					Com a chave de retorno você inclui nas chamadas do sistema. A API retornará todos os dados cadastrais da sua conta.</h4>
+					Sempre que precisar consumir todos os dados cadastrados (Cadastros dos estabelecimentos, Taxas, Endereço...) é só enviar uma solicitação de autenticação.</br> 
+					Os dados de envio são os mesmos de acesso a plataforma Web (CNPJ, Login e Senha). </h4>
 
 					<div class="alert alert-warning col-md-8" role="alert"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> <strong>Nunca compartilhe suas credenciais!</strong> Mantenha seus dados sempre protegidos e seguros.</div>
 			
@@ -358,7 +360,7 @@
 	<!-- AUTENTICACAO CONTENT -->
 	<div class="main-content">
 		<div class="container-fluid">
-			<h3 class="page-title">Comprovantes</h3>
+			<h3 class="page-title">Recebimentos</h3>
 			<h4 class="page-title">
 					Consulte todos os registros financeiros do conciliador (Pagamentos, Ajustes, Antecipações, Cancelamentos, Taxas e prazos aplicados...).</h4>
 			
